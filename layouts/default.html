@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Antipatterns - <%= content_for(@item, :title) || @item[:title] %></title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">     
+    <link rel="icon" type="image/png" href="/favicon.png" />  
+  </head>
+  <body>
+    <div id="main">
+      <%= yield %>
+    </div>
+    <div id="sidebar">
+      <h1><a href="/">Antipatterns</a></h1>
+      <p>Antipatterns was a <a href="http://hollowearthradio.org/">Hollow Earth</a> radio show hosted by <a href="http://postmoderncore.com">Postmoderncore</a>. It ran from July 2013 to September 2015.</p>
+      <%= content_for(@item, :sidebar) %>
+    </div>
+  </body>
+</html>

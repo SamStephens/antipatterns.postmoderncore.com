@@ -1,0 +1,14 @@
+<% content_for :title do %>
+  <%= get_display_title(item) %>
+<% end %>
+
+<% render '/default.*' do %>
+  <div class='playlist'>
+    <h1><%= get_display_title(item) %></h1>
+    <article>
+      <%= item[:description] %>
+      <%= render_mixcloud(item) %>
+      <%= render_tracks(item) %>
+    </article>
+  </div>
+<% end %>

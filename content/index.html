@@ -1,0 +1,34 @@
+---
+title: Playlists
+---
+
+<% current_month = nil %>
+
+<% content_for :sidebar do %>
+  <h2>By Month</h2>
+  <ol id="">
+    <% sorted_articles.each do |playlist| %>
+      <% if current_month != get_anchor_month(playlist) %>
+        <% current_month = get_anchor_month(playlist) %>
+        <li><a href="<%= '#' + get_anchor_month(playlist) %>"><%= get_display_month(playlist) %></a></li>
+      <% end %>
+    <% end %>
+  </ol>
+<% end %>
+
+<h1>Playlists</h1>
+
+<% sorted_articles.each do |playlist| %>
+  <% if current_month != get_anchor_month(playlist) %>
+    <% current_month = get_anchor_month(playlist) %>
+    <h2><a id="<%= get_anchor_month(playlist) %>"><%= get_display_month(playlist) %></a></h2>
+  <% end %>
+  <div class='playlist'>
+    <h3><%= link_to get_display_title(playlist), playlist.path %></h2>
+    <article>
+      <%= playlist[:description] %>
+      <%= render_mixcloud(playlist) %>
+      <%= render_tracks(playlist) %>
+    </article>
+  </div>
+<% end %>
