@@ -6,7 +6,7 @@ title: Playlists
 
 <% content_for :sidebar do %>
   <h2>By Month</h2>
-  <ol id="">
+  <ol>
     <% sorted_articles.each do |playlist| %>
       <% if current_month != get_anchor_month(playlist) %>
         <% current_month = get_anchor_month(playlist) %>
