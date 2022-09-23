@@ -16,21 +16,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout'
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: recursive
       - name: 'Build page with Nanoc'
         uses: SamStephens/nanoc-build-pages@v2
         with:
           source: ./
-      - name: 'Archive build output'
-        run: tar --dereference --hard-dereference --directory output/ -cvf artifact.tar .
       - name: 'Upload artifact'
-        uses: actions/upload-artifact@main
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: github-pages
-          path: ./artifact.tar
-          if-no-files-found: error
+          path: ./output
 
   deploy:
     needs: build
