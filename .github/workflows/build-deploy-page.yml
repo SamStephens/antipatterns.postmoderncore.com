@@ -22,7 +22,7 @@ jobs:
       - name: 'Build page with Nanoc'
         uses: SamStephens/nanoc-build-pages@v2
         env:
-          RUBY_VERSION: 3.3.5
+          RUBY_VERSION: 3.4.4
         with:
           source: ./
       - name: 'Upload artifact'
